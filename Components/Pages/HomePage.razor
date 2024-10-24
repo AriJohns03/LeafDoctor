@@ -1,0 +1,42 @@
+﻿@page "/home"
+
+
+<h1>Welcome to your Home Page</h1>
+
+<form>
+    <p>
+        <label>Title: <input type="text" asp-for="SearchString" /></label>
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<div>
+    <label for="input1">Input 1:</label>
+    <input type="text" id="input1" @bind="Input1" />
+</div>
+
+<div>
+    <label for="input2">Input 2:</label>
+    <input type="text" id="input2" @bind="Input2" />
+</div>
+
+<div>
+    <button @onclick="Submit">Submit</button>
+</div>
+
+@if (!string.IsNullOrEmpty(Result))
+{
+    <p>Result: @Result</p>
+}
+
+@code {
+    private string Input1 { get; set; } = string.Empty;
+    private string Input2 { get; set; } = string.Empty;
+    private string Result { get; set; } = string.Empty;
+
+    private void Submit()
+    {
+        Result = $"{Input1} {Input2}";
+    }
+}
+

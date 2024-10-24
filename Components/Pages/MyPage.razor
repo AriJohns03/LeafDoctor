@@ -1,0 +1,40 @@
+﻿<h3>MyPage</h3>
+
+@* Posts *@
+<div class="post-item">
+    <div class="post-header">
+        <img src="@ProfileImageUrl" alt="userImage" class="profile-image" />
+        <div class="user-info">
+            <h3>@UserName</h3>
+            <span>@Timestamp.ToString("MMM dd, yyyy h:mm tt")</span>
+        </div>
+    </div>
+
+    <div class="post-content">
+        <p>@PostText</p>
+    </div>
+
+    <div class="post-actions">
+        <button @onclick="LikePost">Like (@LikeCount)</button>
+        <button @onclick="CommentOnPost">Comment</button>
+    </div>
+</div>
+
+@code {
+    public string UserName { get; set; }
+    public string ProfileImageUrl { get; set; }
+    public string PostText { get; set; }
+    public int LikeCount { get; set; }
+    public DateTime Timestamp { get; set; }
+
+    private void LikePost()
+    {
+        
+    }
+
+    private void CommentOnPost()
+    {
+        
+    }
+}
+
