@@ -3,31 +3,31 @@
 <h1>LoginPage</h1>
 
 <div>
-    <label for="input1">Input 1:</label>
-    <input type="text" id="input1" @bind="Input1" />
+    <label for="username">Enter your username here:</label>
+    <input type="text" id="username" @bind="Username" />
 </div>
 
 <div>
-    <label for="input2">Input 2:</label>
-    <input type="text" id="input2" @bind="Input2" />
+    <label for="password">Enter your password here: </label>
+    <input type="text" id="password" @bind="Password" />
 </div>
 
 <div>
     <button @onclick="Submit">Submit</button>
 </div>
 
-@if (!string.IsNullOrEmpty(Result))
+@if (!string.IsNullOrEmpty(Creds))
 {
-    <p>Result: @Result</p>
+    <p>Account: @Creds</p>
 }
 
 @code {
-    private string Input1 { get; set; } = string.Empty;
-    private string Input2 { get; set; } = string.Empty;
-    private string Result { get; set; } = string.Empty;
+    private string Username { get; set; } = string.Empty;
+    private string Password { get; set; } = string.Empty;
+    private string Creds { get; set; } = string.Empty;
 
     private void Submit()
     {
-        Result = $"{Input1} {Input2}";
+        Creds = $"{Username} {Password}";
     }
 }
